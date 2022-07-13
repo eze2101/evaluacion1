@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Comment } from '../../interface/comment.interface';
 import { EjercicioService } from '../../services/ejercicio.service';
 
@@ -9,6 +9,7 @@ import { EjercicioService } from '../../services/ejercicio.service';
 })
 export class ComentariosComponent implements OnInit {
   @Input() idPost?: number;
+  @Output() valueEmit: EventEmitter<boolean> = new EventEmitter();
   comments: Comment[] = [];
 
   constructor(private ejercicioService: EjercicioService) {}
@@ -17,5 +18,9 @@ export class ComentariosComponent implements OnInit {
     this.ejercicioService
       .GetComments(this.idPost!)
       .subscribe((res) => (this.comments = res));
+  }
+
+  emit() {
+    this.valueEmit.emit(true);
   }
 }

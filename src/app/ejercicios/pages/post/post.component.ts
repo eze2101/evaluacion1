@@ -11,6 +11,8 @@ import { EjercicioService } from '../../services/ejercicio.service';
 export class PostComponent implements OnInit {
   idPost?: number;
   dataPost?: Post;
+  viewDate: boolean = false;
+  date: Date = new Date();
 
   constructor(
     private ruteActive: ActivatedRoute,
@@ -23,5 +25,8 @@ export class PostComponent implements OnInit {
     this.ejercicioService
       .GetPostByID(this.idPost!)
       .subscribe((res) => (this.dataPost = res));
+  }
+  recibir(value: boolean) {
+    this.viewDate = value;
   }
 }
