@@ -4,7 +4,10 @@
   <div>
     <div *ngFor="let comment of comments">
       <h4>Nombre: {{ comment.name | minusMayus: comment.mayuscula! }}</h4>
-      <button (click)="changeTypeLetter(comment)">
+      <button
+        (click)="changeTypeLetter(comment)"
+        [ngClass]="{ mayuscula: comment.mayuscula }"
+      >
         {{ comment.mayuscula ? "Minisculas" : "Mayuscula" }}
       </button>
       <h5>Comentario: {{ comment.body }}</h5>
