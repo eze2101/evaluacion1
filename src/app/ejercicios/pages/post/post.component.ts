@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Post } from '../interface/post.interface';
-import { EjercicioService } from '../services/ejercicio.service';
+import { Post } from '../../interface/post.interface';
+import { EjercicioService } from '../../services/ejercicio.service';
 
 @Component({
   selector: 'app-post',

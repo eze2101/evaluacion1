@@ -4,13 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostComponent } from './ejercicios/post/post.component';
-import { TableComponent } from './ejercicios/table/table/table.component';
+import { PostComponent } from './ejercicios/pages/post/post.component';
+import { TableComponent } from './ejercicios/pages/table/table.component';
 
 import { ErrorComponent } from './shared/error/error/error.component';
+import { ComentariosComponent } from './ejercicios/components/comentarios/comentarios.component';
 
 @NgModule({
-  declarations: [AppComponent, ErrorComponent, TableComponent, PostComponent],
+  declarations: [AppComponent, ErrorComponent, TableComponent, PostComponent, ComentariosComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostComponent } from './ejercicios/post/post.component';
-import { TableComponent } from './ejercicios/table/table/table.component';
+import { PostComponent } from './ejercicios/pages/post/post.component';
+import { TableComponent } from './ejercicios/pages/table/table.component';
 import { ErrorComponent } from './shared/error/error/error.component';
 
 const routes: Routes = [

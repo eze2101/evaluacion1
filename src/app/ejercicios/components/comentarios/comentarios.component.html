@@ -1,0 +1,10 @@
+<div>
+  <h2>Comentarios</h2>
+
+  <div>
+    <div *ngFor="let comment of comments">
+      <h4>Nombre: {{ comment.name }}</h4>
+      <h5>Comentario: {{ comment.body }}</h5>
+    </div>
+  </div>
+</div>
