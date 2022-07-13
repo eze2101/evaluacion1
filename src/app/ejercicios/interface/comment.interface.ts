@@ -3,4 +3,5 @@ export interface Comment {
   body: string;
   id: number;
   postId: number;
+  mayuscula?: boolean;
 }

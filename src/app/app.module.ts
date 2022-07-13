@@ -9,6 +9,7 @@ import { TableComponent } from './ejercicios/pages/table/table.component';
 
 import { ErrorComponent } from './shared/error/error/error.component';
 import { ComentariosComponent } from './ejercicios/components/comentarios/comentarios.component';
+import { MinMayPipe } from './ejercicios/pipes/min-may.pipe';
 
 //cambiar locale Date
 import localEs from '@angular/common/locales/es-AR';
@@ -22,6 +23,7 @@ registerLocaleData(localEs);
     TableComponent,
     PostComponent,
     ComentariosComponent,
+    MinMayPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
