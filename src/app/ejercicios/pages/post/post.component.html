@@ -1,13 +1,23 @@
-<div>
-  <span>Post Numero: {{ dataPost?.id }}</span>
-  <span *ngIf="viewDate">Fecha: {{ date | date }} </span>
-</div>
-<h1>{{ dataPost?.title | titlecase }}</h1>
-<hr />
-<h3>{{ dataPost?.body }}</h3>
+<div fxLayout="row wrap" fxLayoutAlign="center" class="container">
+  <div fxLayout="row wrap" fxFlex="55" fxLayoutAlign="space-between center">
+    <button mat-raised-button color="accent" [routerLink]="['/posts']">
+      Regresar
+    </button>
+    <span>Post Numero: {{ dataPost?.id }}</span>
+  </div>
+  <div fxLayout="row wrap" fxFlex="45" fxLayoutAlign="flex-end center">
+    <span *ngIf="viewDate">Fecha: {{ date | date }} </span>
+  </div>
+  <div class="post" fxFlex="100">
+    <h1>{{ dataPost?.title | titlecase }}</h1>
+    <hr />
+    <h3>{{ dataPost?.body }}</h3>
+  </div>
 
-<hr />
-<app-comentarios
-  [idPost]="idPost"
-  (valueEmit)="recibir($event)"
-></app-comentarios>
+  <div fxFlex="80" class="comentarios">
+    <app-comentarios
+      [idPost]="idPost"
+      (valueEmit)="recibir($event)"
+    ></app-comentarios>
+  </div>
+</div>

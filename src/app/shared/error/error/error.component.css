@@ -1,0 +1,10 @@
+.error {
+  width: 100vw;
+  height: 100vh;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 30px;
+}

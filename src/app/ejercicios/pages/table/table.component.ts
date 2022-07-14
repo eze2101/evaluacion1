@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../interface/post.interface';
 import { EjercicioService } from '../../services/ejercicio.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
@@ -8,11 +10,17 @@ import { EjercicioService } from '../../services/ejercicio.service';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  posts: Post[] = [];
+  displayedColumns: string[] = ['position', 'title', 'actions'];
+  dataSource = new MatTableDataSource<Post>;
+
+  @ViewChild(MatPaginator) paginator?: MatPaginator;
 
   constructor(private ejercicioService: EjercicioService) {}
 
   ngOnInit(): void {
-    this.ejercicioService.GetPosts().subscribe((resp) => (this.posts = resp));
+    this.ejercicioService.GetPosts().subscribe((resp) => {
+      (this.dataSource = new MatTableDataSource<Post>(resp)),
+        (this.dataSource.paginator = this.paginator!);
+    });
   }
 }

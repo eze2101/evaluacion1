@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../../interface/post.interface';
 import { EjercicioService } from '../../services/ejercicio.service';
 
@@ -16,15 +16,21 @@ export class PostComponent implements OnInit {
 
   constructor(
     private ruteActive: ActivatedRoute,
-    private ejercicioService: EjercicioService
+    private ejercicioService: EjercicioService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.idPost = this.ruteActive.snapshot.params['number'];
 
-    this.ejercicioService
-      .GetPostByID(this.idPost!)
-      .subscribe((res) => (this.dataPost = res));
+    this.ejercicioService.GetPostByID(this.idPost!).subscribe(
+      (res) => {
+        this.dataPost = res;
+      },
+      (error) => {
+        this.router.navigateByUrl('404');
+      }
+    );
   }
   recibir(value: boolean) {
     this.viewDate = value;

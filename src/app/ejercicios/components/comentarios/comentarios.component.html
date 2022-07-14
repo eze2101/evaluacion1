@@ -1,18 +1,27 @@
 <div>
-  <h2>Comentarios</h2>
+  <h2 fxLayoutAlign="center">Comentarios</h2>
 
+  <mat-divider></mat-divider>
   <div>
-    <div *ngFor="let comment of comments">
-      <h4>Nombre: {{ comment.name | minusMayus: comment.mayuscula! }}</h4>
-      <button
-        (click)="changeTypeLetter(comment)"
-        [ngClass]="{ mayuscula: comment.mayuscula }"
-      >
-        {{ comment.mayuscula ? "Minisculas" : "Mayuscula" }}
-      </button>
-      <h5>Comentario: {{ comment.body }}</h5>
+    <div *ngFor="let comment of comments" class="comentario">
+      <div fxLayout="row wrap" fxLayoutAlign="space-between flex-start">
+        <h3>
+          <u>Nombre:</u> {{ comment.name | minusMayus: comment.mayuscula! }}
+        </h3>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="changeTypeLetter(comment)"
+          [ngClass]="{ mayuscula: comment.mayuscula }"
+        >
+          {{ comment.mayuscula ? "Minisculas" : "Mayuscula" }}
+        </button>
+      </div>
+      <h4><u>Comentario:</u> {{ comment.body }}</h4>
+      <mat-divider></mat-divider>
     </div>
   </div>
-
-  <button (click)="emit()">Emitir</button>
+  <div class="emit" fxLayoutAlign="center center">
+    <button mat-raised-button color="warn" (click)="emit()">Emitir</button>
+  </div>
 </div>
