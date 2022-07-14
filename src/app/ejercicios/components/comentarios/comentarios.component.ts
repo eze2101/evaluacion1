@@ -11,7 +11,6 @@ export class ComentariosComponent implements OnInit {
   @Input() idPost?: number;
   @Output() valueEmit: EventEmitter<boolean> = new EventEmitter();
   comments: Comment[] = [];
-  Mayuscula: boolean = false;
 
   constructor(private ejercicioService: EjercicioService) {}
 
